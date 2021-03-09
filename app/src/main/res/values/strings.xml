@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="app_name">Calculadora</string>
+    <string name="tema">Calculadora - Mkvl</string>
+    <string name="bt_soma">+</string>
+    <string name="bt_subtracao">-</string>
+    <string name="bt_divisao">/</string>
+    <string name="bt_multiplica">*</string>
+    <string name="bt_raiz">√</string>
+    <string name="bt_mod">%</string>
+    <string name="bt_igual">=</string>
+    <string name="bt_limpar">C</string>
+    <string name="bt_ponto">.</string>
+
+    <string name="Bt_um">1</string>
+    <string name="Bt_dois">2</string>
+    <string name="Bt_tres">3</string>
+    <string name="Bt_quatro">4</string>
+    <string name="Bt_crinco">5</string>
+    <string name="Bt_seis">6</string>
+    <string name="Bt_sete">7</string>
+    <string name="Bt_oito">8</string>
+    <string name="Bt_nove">9</string>
+    <string name="Bt_0">0</string>
+
+
+</resources>
