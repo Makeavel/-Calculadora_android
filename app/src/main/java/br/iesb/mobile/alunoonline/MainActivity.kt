@@ -7,30 +7,43 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     var TiraZero  = true
+    var Numero1 = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-     bt_divi.setOnClickListener(){ KoltinOperacoes("/")}
-     bt_mult.setOnClickListener(){ KoltinOperacoes("*")}
-     bt_igual.setOnClickListener(){ KoltinOperacoes("=")}
-     bt_mais.setOnClickListener(){ KoltinOperacoes("+")}
-     bt_menos.setOnClickListener(){ KoltinOperacoes("-")}
-     bt_percent.setOnClickListener(){ KoltinOperacoes("%")}
-     bt_ponto.setOnClickListener(){kotlinNumeros(".")}
+     //Operações
+         bt_divi.setOnClickListener(){KoltinOperacoes("/") }
+         bt_mult.setOnClickListener(){ KoltinOperacoes("*") }
+         bt_mais.setOnClickListener(){ KoltinOperacoes("+") }
+         bt_menos.setOnClickListener(){ KoltinOperacoes("-") }
+         bt_percent.setOnClickListener(){ KoltinOperacoes("%") }
+         bt_ponto.setOnClickListener(){ kotlinNumeros(".") }
 
+    //Limpador AC
+        bt_limpar.setOnClickListener(){ KotlinLimpador("0") }
 
-    bt_nove.setOnClickListener{ kotlinNumeros("9")}
-    bt_oito.setOnClickListener{ kotlinNumeros("8")}
-    bt_sete.setOnClickListener{ kotlinNumeros("7")}
-    bt_seis.setOnClickListener{ kotlinNumeros("6")}
-    bt_cinco.setOnClickListener{ kotlinNumeros("5")}
-    bt_quatro.setOnClickListener{ kotlinNumeros("4")}
-    bt_tres.setOnClickListener{ kotlinNumeros("3") }
-    bt_dois.setOnClickListener{ kotlinNumeros("2")}
-    bt_um.setOnClickListener{ kotlinNumeros("1") }
-    bt_zero.setOnClickListener { kotlinNumeros("0") }
+    //Igualdade
+        bt_igual.setOnClickListener(){ KoltinIgualdade(editText.text.toString())}
 
+    //Numeros
+        bt_nove.setOnClickListener{ kotlinNumeros("9")}
+        bt_oito.setOnClickListener{ kotlinNumeros("8")}
+        bt_sete.setOnClickListener{ kotlinNumeros("7")}
+        bt_seis.setOnClickListener{ kotlinNumeros("6")}
+        bt_cinco.setOnClickListener{ kotlinNumeros("5")}
+        bt_quatro.setOnClickListener{ kotlinNumeros("4")}
+        bt_tres.setOnClickListener{ kotlinNumeros("3") }
+        bt_dois.setOnClickListener{ kotlinNumeros("2")}
+        bt_um.setOnClickListener{ kotlinNumeros("1") }
+        bt_zero.setOnClickListener { kotlinNumeros("0") }
+
+    }
+
+    private fun KotlinLimpador(Limpador : String){
+        editText.setText("0")
+        TiraZero = true
     }
 
     private fun kotlinNumeros(validador : String){
@@ -73,9 +86,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun KoltinIgualdade(Igualdade : String){
+
+        var Numero2 = editText.text.toString()
+        var ResultFinal = 0.0
+
+        if(editText.text.toString() == "*"){
+            ResultFinal = (Numero1.toDouble() * Numero2.toDouble())
+        }
+        if(editText.text.toString() == "/"){
+            ResultFinal = (Numero1.toDouble() / Numero2.toDouble())
+        }
+        if(editText.text.toString() == "+"){
+            ResultFinal = (Numero1.toDouble() + Numero2.toDouble())
+        }
+        if(editText.text.toString() == "-"){
+            ResultFinal = (Numero1.toDouble() - Numero2.toDouble())
+        }
+        if(editText.text.toString() == "%"){
+            ResultFinal = (Numero1.toDouble() % Numero2.toDouble())
+        }
+        editText.setText(ResultFinal.toString())
+    }
 
     private fun KoltinOperacoes(operacao : String ){
 
+        Numero1 = editText.text.toString()
 
         if(operacao == "+"){
             editText.text = editText.text.toString() + bt_mais.text.toString()
@@ -94,10 +130,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun KotlinResultado(){
-        var secondPart = editText.text.toString()
-        var ResultFinal = 0.0
-
-
-    }
 }
