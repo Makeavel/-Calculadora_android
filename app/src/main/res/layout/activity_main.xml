@@ -14,7 +14,7 @@
         android:layout_width="96dp"
         android:layout_height="58dp"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#000000"
         android:text="@string/bt_divisao"
@@ -29,7 +29,7 @@
         android:id="@+id/bt_percent"
         android:layout_width="96dp"
         android:layout_height="58dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="6dp"
         android:backgroundTint="#000000"
         android:text="@string/bt_mod"
@@ -53,13 +53,13 @@
         app:layout_constraintEnd_toStartOf="@+id/bt_percent"
         app:layout_constraintStart_toEndOf="@+id/bt_limpar"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/bt_limpar"
         android:layout_width="96dp"
         android:layout_height="58dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#000000"
@@ -105,13 +105,12 @@
         android:id="@+id/bt_sete"
         android:layout_width="96dp"
         android:layout_height="58dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="38dp"
         android:background="#000000"
         android:backgroundTint="#000000"
         android:text="@string/Bt_sete"
         android:textSize="28dp"
-        app:layout_constraintBottom_toTopOf="@id/bt_quatro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_limpar" />
 
@@ -180,12 +179,11 @@
         android:layout_width="96dp"
         android:layout_height="58dp"
         android:layout_marginStart="12dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="14dp"
         android:background="#000000"
         android:backgroundTint="#000000"
         android:text="@string/Bt_quatro"
         android:textSize="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/bt_um"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_sete" />
 
@@ -193,7 +191,6 @@
         android:id="@+id/bt_igual"
         android:layout_width="96dp"
         android:layout_height="58dp"
-        android:layout_marginStart="10dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="4dp"
         android:background="#FF5722"
@@ -202,61 +199,43 @@
         android:textSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bt_ponto"
         app:layout_constraintTop_toBottomOf="@+id/bt_mais" />
 
     <Button
         android:id="@+id/bt_ponto"
         android:layout_width="96dp"
         android:layout_height="58dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#000000"
         android:text="@string/bt_ponto"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_igual"
-        app:layout_constraintStart_toEndOf="@+id/bt_zero"
-        app:layout_constraintTop_toBottomOf="@+id/bt_tres" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/bt_zero"
-        android:layout_width="96dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="91dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginBottom="12dp"
         android:background="#000000"
         android:backgroundTint="#000000"
         android:text="@string/Bt_0"
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_ponto"
-        app:layout_constraintStart_toEndOf="@+id/button13"
-        app:layout_constraintTop_toBottomOf="@+id/bt_dois" />
-
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="93dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_zero"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_um" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bt_um"
         android:layout_width="96dp"
         android:layout_height="58dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:background="#000000"
         android:backgroundTint="#000000"
         android:text="@string/Bt_um"
         android:textSize="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/button13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_quatro" />
 
