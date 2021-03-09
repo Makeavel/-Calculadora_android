@@ -6,8 +6,10 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var TiraZero  = true
-    var Numero1 = ""
+
+    var TiraZero  = true // responsavel por tirar o 0 da tela ao digitar
+    var Numero1 = "" // primeira numero antes do sinal de operação
+    var sinal = "+"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,13 +21,12 @@ class MainActivity : AppCompatActivity() {
          bt_mais.setOnClickListener(){ KoltinOperacoes("+") }
          bt_menos.setOnClickListener(){ KoltinOperacoes("-") }
          bt_percent.setOnClickListener(){ KoltinOperacoes("%") }
-         bt_ponto.setOnClickListener(){ kotlinNumeros(".") }
 
     //Limpador AC
-        bt_limpar.setOnClickListener(){ KotlinLimpador("0") }
+        bt_limpar.setOnClickListener(){ KotlinLimpador() }
 
     //Igualdade
-        bt_igual.setOnClickListener(){ KoltinIgualdade(editText.text.toString())}
+        bt_igual.setOnClickListener(){ KoltinIgualdade()}
 
     //Numeros
         bt_nove.setOnClickListener{ kotlinNumeros("9")}
@@ -38,10 +39,11 @@ class MainActivity : AppCompatActivity() {
         bt_dois.setOnClickListener{ kotlinNumeros("2")}
         bt_um.setOnClickListener{ kotlinNumeros("1") }
         bt_zero.setOnClickListener { kotlinNumeros("0") }
+        bt_ponto.setOnClickListener{ kotlinNumeros(".") }
 
     }
 
-    private fun KotlinLimpador(Limpador : String){
+    private fun KotlinLimpador(){
         editText.setText("0")
         TiraZero = true
     }
@@ -52,59 +54,51 @@ class MainActivity : AppCompatActivity() {
         }
         TiraZero = false
 
-        if(validador == "1"){
-            editText.text = editText.text.toString() + bt_um.text.toString()
+        when(validador) {
+            "1" -> {
+                editText.text = editText.text.toString() + bt_um.text.toString()
+            }
+            "2" -> {
+                editText.text = editText.text.toString() + bt_dois.text.toString()
+            }
+            "3" -> {
+                editText.text = editText.text.toString() + bt_tres.text.toString()
+            }
+            "4" -> {
+                editText.text = editText.text.toString() + bt_quatro.text.toString()
+            }
+            "5" -> {
+                editText.text = editText.text.toString() + bt_cinco.text.toString()
+            }
+            "6" -> {
+                editText.text = editText.text.toString() + bt_seis.text.toString()
+            }
+            "7" -> {
+                editText.text = editText.text.toString() + bt_sete.text.toString()
+            }
+            "8" -> {
+                editText.text = editText.text.toString() + bt_oito.text.toString()
+            }
+            "9" -> {
+                editText.text = editText.text.toString() + bt_nove.text.toString()
+            }
+            "0" -> {
+                editText.text = editText.text.toString() + bt_zero.text.toString()
+            }
         }
-        if(validador == "2"){
-            editText.text = editText.text.toString() + bt_dois.text.toString()
-        }
-        if(validador == "3"){
-            editText.text = editText.text.toString() + bt_tres.text.toString()
-        }
-        if(validador == "4"){
-            editText.text = editText.text.toString() + bt_quatro.text.toString()
-        }
-        if(validador == "5"){
-            editText.text = editText.text.toString() + bt_cinco.text.toString()
-        }
-        if(validador == "6"){
-            editText.text = editText.text.toString() + bt_seis.text.toString()
-        }
-        if(validador == "7"){
-            editText.text = editText.text.toString() + bt_sete.text.toString()
-        }
-        if(validador == "8"){
-            editText.text = editText.text.toString() + bt_oito.text.toString()
-        }
-        if(validador == "9"){
-            editText.text = editText.text.toString() + bt_nove.text.toString()
-        }
-        if(validador == "0"){
-            editText.text = editText.text.toString() + bt_zero.text.toString()
-        }
-
-
     }
 
-    private fun KoltinIgualdade(Igualdade : String){
+    private fun KoltinIgualdade(){
 
         var Numero2 = editText.text.toString()
         var ResultFinal = 0.0
 
-        if(editText.text.toString() == "*"){
-            ResultFinal = (Numero1.toDouble() * Numero2.toDouble())
-        }
-        if(editText.text.toString() == "/"){
-            ResultFinal = (Numero1.toDouble() / Numero2.toDouble())
-        }
-        if(editText.text.toString() == "+"){
-            ResultFinal = (Numero1.toDouble() + Numero2.toDouble())
-        }
-        if(editText.text.toString() == "-"){
-            ResultFinal = (Numero1.toDouble() - Numero2.toDouble())
-        }
-        if(editText.text.toString() == "%"){
-            ResultFinal = (Numero1.toDouble() % Numero2.toDouble())
+        when(sinal){
+            "+" -> {ResultFinal = (Numero1.toDouble() + Numero2.toDouble())}
+            "-" -> {ResultFinal = (Numero1.toDouble() - Numero2.toDouble())}
+            "*" -> {ResultFinal = (Numero1.toDouble() * Numero2.toDouble())}
+            "/" -> {ResultFinal = (Numero1.toDouble() / Numero2.toDouble())}
+            "%" -> {ResultFinal = (Numero1.toDouble() % Numero2.toDouble())}
         }
         editText.setText(ResultFinal.toString())
     }
@@ -114,18 +108,23 @@ class MainActivity : AppCompatActivity() {
         Numero1 = editText.text.toString()
 
         if(operacao == "+"){
+            sinal = "+"
             editText.text = editText.text.toString() + bt_mais.text.toString()
         }
         if(operacao == "-"){
+            sinal = "-"
             editText.text = editText.text.toString() + bt_menos.text.toString()
         }
         if(operacao == "*"){
+            sinal = "*"
             editText.text = editText.text.toString() + bt_mult.text.toString()
         }
         if(operacao == "/"){
+            sinal = "/"
             editText.text = editText.text.toString() + bt_divi.text.toString()
         }
         if(operacao == "%"){
+            sinal = "%"
             editText.text = editText.text.toString() + bt_percent.text.toString()
         }
     }
