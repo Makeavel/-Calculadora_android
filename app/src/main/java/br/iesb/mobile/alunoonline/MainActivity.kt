@@ -6,34 +6,38 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    var TiraZero  = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-     bt_divi.setOnClickListener(){}
-     bt_mult.setOnClickListener(){}
-     bt_igual.setOnClickListener(){}
-     bt_mais.setOnClickListener(){}
-     bt_menos.setOnClickListener(){}
-     bt_percent.setOnClickListener(){}
-     bt_ponto.setOnClickListener(){kotlinText(".")}
+     bt_divi.setOnClickListener(){ KoltinOperacoes("/")}
+     bt_mult.setOnClickListener(){ KoltinOperacoes("*")}
+     bt_igual.setOnClickListener(){ KoltinOperacoes("=")}
+     bt_mais.setOnClickListener(){ KoltinOperacoes("+")}
+     bt_menos.setOnClickListener(){ KoltinOperacoes("-")}
+     bt_percent.setOnClickListener(){ KoltinOperacoes("%")}
+     bt_ponto.setOnClickListener(){kotlinNumeros(".")}
 
-    editText
 
-    bt_nove.setOnClickListener{ kotlinText("9")}
-    bt_oito.setOnClickListener{ kotlinText("8")}
-    bt_sete.setOnClickListener{ kotlinText("7")}
-    bt_seis.setOnClickListener{ kotlinText("6")}
-    bt_cinco.setOnClickListener{ kotlinText("5")}
-    bt_quatro.setOnClickListener{ kotlinText("4")}
-    bt_tres.setOnClickListener{ kotlinText("3") }
-    bt_dois.setOnClickListener{ kotlinText("2")}
-    bt_um.setOnClickListener{ kotlinText("1") }
-    bt_zero.setOnClickListener { kotlinText("0") }
+    bt_nove.setOnClickListener{ kotlinNumeros("9")}
+    bt_oito.setOnClickListener{ kotlinNumeros("8")}
+    bt_sete.setOnClickListener{ kotlinNumeros("7")}
+    bt_seis.setOnClickListener{ kotlinNumeros("6")}
+    bt_cinco.setOnClickListener{ kotlinNumeros("5")}
+    bt_quatro.setOnClickListener{ kotlinNumeros("4")}
+    bt_tres.setOnClickListener{ kotlinNumeros("3") }
+    bt_dois.setOnClickListener{ kotlinNumeros("2")}
+    bt_um.setOnClickListener{ kotlinNumeros("1") }
+    bt_zero.setOnClickListener { kotlinNumeros("0") }
 
     }
 
-    private fun kotlinText(validador : String){
+    private fun kotlinNumeros(validador : String){
+        if(TiraZero){
+            editText.setText("")
+        }
+        TiraZero = false
 
         if(validador == "1"){
             editText.text = editText.text.toString() + bt_um.text.toString()
@@ -65,22 +69,35 @@ class MainActivity : AppCompatActivity() {
         if(validador == "0"){
             editText.text = editText.text.toString() + bt_zero.text.toString()
         }
-        if(validador == "."){
-            editText.text = editText.text.toString() + bt_ponto.text.toString()
+
+
+    }
+
+
+    private fun KoltinOperacoes(operacao : String ){
+
+
+        if(operacao == "+"){
+            editText.text = editText.text.toString() + bt_mais.text.toString()
         }
+        if(operacao == "-"){
+            editText.text = editText.text.toString() + bt_menos.text.toString()
+        }
+        if(operacao == "*"){
+            editText.text = editText.text.toString() + bt_mult.text.toString()
+        }
+        if(operacao == "/"){
+            editText.text = editText.text.toString() + bt_divi.text.toString()
+        }
+        if(operacao == "%"){
+            editText.text = editText.text.toString() + bt_percent.text.toString()
+        }
+    }
+
+    private fun KotlinResultado(){
+        var secondPart = editText.text.toString()
+        var ResultFinal = 0.0
 
 
     }
-
-    private fun opera( valor : Number , Verifica : Boolean){
-
-        var str = valor.toInt()
-       return
-        Toast.makeText(this, str,Toast.LENGTH_LONG).show()
-    }
-
-    private fun printaText(){
-
-    }
-
 }
