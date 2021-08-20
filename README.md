@@ -1,5 +1,4 @@
 # Calculadora_android
-Projeto de uma calculadora de operações básicas.
 
 ## Layout Inicial
 <img src="https://github.com/Makeavel/-Calculadora_android/blob/master/app/src/main/java/br/iesb/mobile/alunoonline/img/padrão.png" >
@@ -16,4 +15,8 @@ Projeto de uma calculadora de operações básicas.
 # Divisão
 <img src="https://github.com/Makeavel/-Calculadora_android/blob/master/app/src/main/java/br/iesb/mobile/alunoonline/img/div.png" >
 
+# Tecnologias
+-Kotlin
 
+# IDE
+- Android Studio
