@@ -1,5 +1,6 @@
 package br.iesb.mobile.alunoonline
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -103,6 +104,7 @@ class MainActivity : AppCompatActivity() {
         editText.setText(ResultFinal.toString())
     }
 
+    @SuppressLint("SetTextI18n")
     private fun KoltinOperacoes(operacao : String ){
 
         Numero1 = editText.text.toString()
